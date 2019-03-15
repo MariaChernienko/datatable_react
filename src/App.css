@@ -1,6 +1,11 @@
-body {
-  background: #000;
+html, body {
+  margin: 0;
+  padding: 0;
 }
 .App {
   background: orange;
+}
+.sortable-column::after {
+  content: "v";
+  color: red;
 }
