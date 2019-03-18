@@ -1,13 +1,13 @@
 {
-  "main.css": "/datatable_react/build/static/css/main.9171dd70.chunk.css",
-  "main.js": "/datatable_react/build/static/js/main.56057836.chunk.js",
-  "main.js.map": "/datatable_react/build/static/js/main.56057836.chunk.js.map",
+  "main.css": "/datatable_react/build/static/css/main.b6e6a4fc.chunk.css",
+  "main.js": "/datatable_react/build/static/js/main.f93b13a8.chunk.js",
+  "main.js.map": "/datatable_react/build/static/js/main.f93b13a8.chunk.js.map",
   "runtime~main.js": "/datatable_react/build/static/js/runtime~main.3f6f5647.js",
   "runtime~main.js.map": "/datatable_react/build/static/js/runtime~main.3f6f5647.js.map",
-  "static/js/2.2544331a.chunk.js": "/datatable_react/build/static/js/2.2544331a.chunk.js",
-  "static/js/2.2544331a.chunk.js.map": "/datatable_react/build/static/js/2.2544331a.chunk.js.map",
+  "static/js/2.03e27708.chunk.js": "/datatable_react/build/static/js/2.03e27708.chunk.js",
+  "static/js/2.03e27708.chunk.js.map": "/datatable_react/build/static/js/2.03e27708.chunk.js.map",
   "index.html": "/datatable_react/build/index.html",
-  "precache-manifest.0f95bec6a9ca19df2cc5fcd8b4d0ed92.js": "/datatable_react/build/precache-manifest.0f95bec6a9ca19df2cc5fcd8b4d0ed92.js",
+  "precache-manifest.3531935d8b09e12393283178ac894dc3.js": "/datatable_react/build/precache-manifest.3531935d8b09e12393283178ac894dc3.js",
   "service-worker.js": "/datatable_react/build/service-worker.js",
-  "static/css/main.9171dd70.chunk.css.map": "/datatable_react/build/static/css/main.9171dd70.chunk.css.map"
+  "static/css/main.b6e6a4fc.chunk.css.map": "/datatable_react/build/static/css/main.b6e6a4fc.chunk.css.map"
 }
