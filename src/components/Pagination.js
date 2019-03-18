@@ -1,26 +1,22 @@
 import React from 'react';
 
-class Pagination extends React.Component {
+const Pagination = ({ page, perPage, totalCount, onPageChange }) => {
+  const pagesCount = Math.ceil(totalCount / perPage);
+  const pages = Array(pagesCount).fill(0).map((_, i) => i + 1);
 
-  createBtns = (n) => {
-    let btns = []
-    for (let i = 1; i <= n; i++) {
-      btns.push(<span key={i}><button onClick={(event) => this.props.onPageChanged(event, i)}>{i}</button></span>)
-    }
-    return btns;
-  };
+  return (
+    <div>
+      {pages.map(p => (
+        <button
+          key={p}
+          className={p === page ? 'Paginate-btn' : 'Paginate-btn_active'}
+          onClick={() => onPageChange(p)}
+        >
+          { p }
+        </button>
+      ))}
+    </div>
+  );
+};
 
-
-  render() {
-    const { totalRecords, perPage } = this.props;
-   
-    const countPages = (Math.ceil(totalRecords/10)) / perPage * 10;
-
-    return (
-      <div className="Pagination">
-        {this.createBtns(countPages)}
-      </div>
-    )
-  }
-}
 export default Pagination;

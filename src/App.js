@@ -12,7 +12,7 @@ const peopleColConfig = {
     )
   },
   name: {
-    title: 'Имя', 
+    title: 'Name', 
     isSortable: true, 
     isSearchable: true,
     render: (person) => (
@@ -20,18 +20,18 @@ const peopleColConfig = {
     )
   },
   born: {
-    title: 'Год рождения',
+    title: 'Date of Birth',
     isSortable: true, 
   },
   age: {
-    title: "Возраст",
+    title: "Age",
     render: (person) => person.died - person.born,
   },
   sex: { 
-    title: 'Пол',
+    title: 'Gender',
   },
   note: {
-    title: 'Заметка',
+    title: 'Note',
     render: (person) => <input defaultValue={person.note}/>
   }
 };
@@ -49,7 +49,7 @@ class App extends Component {
      
     this.setState({
       people: people.map((person, id) => {
-        return { ...person, id: id };
+        return { ...person, id: id, checked: false };
       }),
     });
   }
