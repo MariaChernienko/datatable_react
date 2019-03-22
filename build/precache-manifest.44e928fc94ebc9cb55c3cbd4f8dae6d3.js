@@ -4,19 +4,19 @@ self.__precacheManifest = [
     "url": "/datatable_react/build/static/js/runtime~main.3f6f5647.js"
   },
   {
-    "revision": "fd8d5b0429b5ad6b0c10",
-    "url": "/datatable_react/build/static/js/main.fd8d5b04.chunk.js"
+    "revision": "14bf552c6ecc2e9c7ff4",
+    "url": "/datatable_react/build/static/js/main.14bf552c.chunk.js"
   },
   {
     "revision": "03e2770839dd9a4463f7",
     "url": "/datatable_react/build/static/js/2.03e27708.chunk.js"
   },
   {
-    "revision": "fd8d5b0429b5ad6b0c10",
-    "url": "/datatable_react/build/static/css/main.a41955d0.chunk.css"
+    "revision": "14bf552c6ecc2e9c7ff4",
+    "url": "/datatable_react/build/static/css/main.10ba39c2.chunk.css"
   },
   {
-    "revision": "cf88405428d13384b0dc340cad2d56bf",
+    "revision": "90e46112207dc9ea4583cfc94e1ba397",
     "url": "/datatable_react/build/index.html"
   }
 ];
