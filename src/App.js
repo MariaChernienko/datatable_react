@@ -7,9 +7,6 @@ import './App.css';
 const peopleColConfig = {
   checkbox: {
     title: '',
-    render: () => (
-      <input type="checkbox" />
-    )
   },
   name: {
     title: 'Name', 
@@ -32,7 +29,7 @@ const peopleColConfig = {
   },
   note: {
     title: 'Note',
-    render: (person) => <input defaultValue={person.note}/>
+    render: () => <input />
   }
 };
 
@@ -49,7 +46,7 @@ class App extends Component {
      
     this.setState({
       people: people.map((person, id) => {
-        return { ...person, id: id, checked: false };
+        return { ...person, id: id, checked: false, note: "" };
       }),
     });
   }

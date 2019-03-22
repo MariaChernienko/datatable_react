@@ -11,7 +11,7 @@ class Table extends React.Component {
     visibleQuery: "",
     perPage: 10,
     page: 1,
-    countCheckButton: 0,
+    allItemsChecked: false,
   };
 
   handleQueryChange = event => {
@@ -23,7 +23,7 @@ class Table extends React.Component {
 
   updateQuery = debounce(query => {
     this.setState({
-      query: query,
+      query,
       page: 1
     });
   }, 500);
@@ -40,15 +40,6 @@ class Table extends React.Component {
         sortAsc: sortColumn === key ? !sortAsc : true
       };
     });
-  };
-
-  handleItemInput = (event, item) => {
-    const { items } = this.props;
-    items[item.id].note = event.target.value;
-
-    if (event.key === "Enter") {
-      event.target.blur();
-    }
   };
 
   sortItems = ({ items, sortColumn, sortAsc }) => {
@@ -76,10 +67,19 @@ class Table extends React.Component {
     return items.slice(start, end);
   };
 
-  checkedItems = ({ items }) => {
-    const { countCheckButton } = this.state;
+  handleHeaderInput = ( status ) => {
+    const { items } = this.props;
+    items.map(item => item.checked = status)
 
-    if(countCheckButton%2 === 0) {
+    this.setState({
+      items
+    });
+  }
+
+  checkedItems = ({ items }) => {
+    const { allItemsChecked } = this.state;
+
+    if(!allItemsChecked) {
       return items;
     } else {
       return items.filter(item => item.checked);
@@ -97,27 +97,22 @@ class Table extends React.Component {
     this.setState({ page });
   };
 
-  handleCheckedStatus = (event, item) => {
+  handleCheckedStatus = (item, status) => {
     const { items } = this.props;
-    
-    if(event.target.type !== 'checkbox') {
-      return ;
-    }
-    if(!items[item.id].checked) {
-      items[item.id].checked = true
-    } else {
-      items[item.id].checked = false
-    }
-  }
-
-  handleButtonClick = ( items ) => {
-    const { countCheckButton } = this.state;
+    items[item.id].checked = status;
 
     this.setState({
-      countCheckButton: countCheckButton + 1,
+      items
     });
   }
 
+  handleButtonClick = () => {
+    const { allItemsChecked } = this.state;
+
+    this.setState({
+      allItemsChecked: !allItemsChecked,
+    });
+  }
 
 
   render() {
@@ -128,8 +123,9 @@ class Table extends React.Component {
       visibleQuery,
       sortColumn,
       sortAsc,
-      countCheckButton,
+      allItemsChecked,
     } = this.state;
+  
     const { items, config } = this.props;
 
     const sortedItems = this.sortItems({
@@ -160,7 +156,7 @@ class Table extends React.Component {
           <h3>data table with some people</h3>
           <div>
             <button onClick={this.handleButtonClick}>
-              {countCheckButton%2===0 ? 'Show checked' : 'Show All'}
+              { allItemsChecked ? 'Show All' : 'Show checked' }
             </button>
             <input
               type="text"
@@ -180,7 +176,7 @@ class Table extends React.Component {
                   className={`Table-cell dark-border ${config[key].isSortable ? "sortable-column" : ""}`}
                   onClick={() => this.handleHeaderClick(key)}
                 >
-                  {value.title}
+                  {key==='checkbox' ? <input type="checkbox" value="" onChange={(event) => this.handleHeaderInput(event.target.checked)}/> : value.title}
                 </th>
               ))}
             </tr>
@@ -196,9 +192,8 @@ class Table extends React.Component {
                   <td 
                     key={key} 
                     className="Table-cell"
-                    onKeyPress={event => this.handleItemInput(event, item)}
-                    onChange={event => this.handleCheckedStatus(event, item)}
                   >
+                    {key ==='checkbox' && <input type="checkbox" checked={item.checked} onChange={(event) => this.handleCheckedStatus(item, event.target.checked)} />}
                     {config[key].render ? config[key].render(item) : item[key]} 
                   </td>
                 ))}
@@ -210,8 +205,8 @@ class Table extends React.Component {
 
         <div className='Table-App_Footer'>
           <div>
-            <h4>People per page:</h4>
-            <select onChange={this.handlePerPageChange} value={this.state.perPage}>
+            <h4>people per page:</h4>
+            <select className="Items-perpage" onChange={this.handlePerPageChange} value={this.state.perPage}>
               <option value="3">3</option>
               <option value="5">5</option>
               <option value="10">10</option>
@@ -231,9 +226,5 @@ class Table extends React.Component {
     );
   }
 }
-
-
-
-
 
 export default Table;

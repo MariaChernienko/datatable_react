@@ -5,6 +5,7 @@
   "private": true,
   "dependencies": {
     "lodash.debounce": "^4.0.8",
+    "randomstring": "^1.1.5",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-router-dom": "^4.3.1",

@@ -9,7 +9,7 @@ const Pagination = ({ page, perPage, totalCount, onPageChange }) => {
       {pages.map(p => (
         <button
           key={p}
-          className={p === page ? 'Paginate-btn' : 'Paginate-btn_active'}
+          className={p === page ? 'Paginate-btn_active' : 'Paginate-btn'}
           onClick={() => onPageChange(p)}
         >
           { p }
